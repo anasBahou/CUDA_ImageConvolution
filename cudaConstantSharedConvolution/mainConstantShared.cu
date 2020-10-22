@@ -90,7 +90,7 @@ int main(){
 	};
 
 
-	inputImage = PPM_import("/home/pietrobongini/cuda-workspace/cudaConstantSharedConvolution/img/computer_programming.ppm");
+	inputImage = PPM_import("./img/computer_programming.ppm");
 
 	imageWidth = Image_getWidth(inputImage);
 	imageHeight = Image_getHeight(inputImage);
@@ -139,7 +139,7 @@ int main(){
 	cudaMemcpy(hostOutputImageData, deviceOutputImageData, imageWidth * imageHeight *
 			imageChannels * sizeof(float), cudaMemcpyDeviceToHost);
 
-	PPM_export("/home/pietrobongini/cuda-workspace/cudaConstantSharedConvolution/output/result.ppm", outputImage);
+	PPM_export("./output/result.ppm", outputImage);
 
 	cudaMemset(deviceInputImageData,0,imageWidth * imageHeight *
 				imageChannels * sizeof(float));
